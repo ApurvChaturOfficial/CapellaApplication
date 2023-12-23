@@ -66,7 +66,7 @@ const HomePageComponent = ({ Redux, ReduxUltimate }) => {
             Redux.state.ReceivedObject?.Retrieve?.ServiceList && 
               <AboutAndServiceSectionComponent Redux={Redux} />
           }
-          {Redux.state.ReceivedObject?.Retrieve?.BranchRetrieve && <BranchSectionComponent Redux={Redux} />}
+          {/* {Redux.state.ReceivedObject?.Retrieve?.BranchRetrieve && <BranchSectionComponent Redux={Redux} />} */}
           {Redux.state.ReceivedObject?.Retrieve?.ProjectSectionRetrieve && <ProjectSectionComponent Redux={Redux} />}
           <MKBox pt={18} pb={6}>
             <Container>

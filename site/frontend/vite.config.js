@@ -9,10 +9,10 @@ export default defineConfig({
     react(),
     VitePWA({
       manifest:  {
-        "name": "Tadpole Organisation",
+        "name": "Capella Enterprise",
         "icons": [
           {
-            src: "Business/Tadpole/favicon_io/android-chrome-512x512.png",
+            src: "Business/Capella/favicon_io/android-chrome-512x512.png",
             sizes: "512x512",
             type: "image/png",
             purpose: "any maskable"
