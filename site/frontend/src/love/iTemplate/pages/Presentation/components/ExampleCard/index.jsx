@@ -34,6 +34,20 @@ function ExampleCard({ image, name, name2, count, pro, subtitle, links, ...rest 
       }}
       {...rest}
     >
+      {badge && (
+        <MKBox position="absolute" top={0} left={0} zIndex={2} p={1}>
+          <MKBadge
+            variant="contained"
+            color="info"
+            badgeContent={badge}
+            container
+            sx={{ mb: 1 }}
+            size="sm"
+            circular
+          />
+        </MKBox>
+      )}
+
       {pro && (
         <MKBox position="absolute" top={0} right={0} zIndex={2} p={1}>
           <svg

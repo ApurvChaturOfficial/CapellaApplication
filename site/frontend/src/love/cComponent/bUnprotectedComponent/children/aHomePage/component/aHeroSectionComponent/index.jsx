@@ -70,8 +70,9 @@ const HeroSectionComponent = ({ Redux, ReduxUltimate }) => {
           <MKBadge
             variant="contained"
             color="info"
-            badgeContent={Redux.state.ReceivedObject?.Retrieve?.HeroRetrieve?.subtitle}
+            badgeContent="The Sigma Cluster (σC)"
             container
+            circular
             sx={{ mb: 1, mt: 2 }}
           />
           <MKTypography
@@ -83,12 +84,15 @@ const HeroSectionComponent = ({ Redux, ReduxUltimate }) => {
               },
             })}
           >
+            {Redux.state.ReceivedObject?.Retrieve?.HeroRetrieve?.title}
+          </MKTypography>
+          <MKTypography variant="body1" color="white" opacity={0.8} mb={3}>
             {Redux.state.ReceivedObject?.Retrieve?.HeroRetrieve?.subtitle}
           </MKTypography>
           <MKTypography variant="body1" color="white" opacity={0.8} mt={1} mb={3}>
             {Redux.state.ReceivedObject?.Retrieve?.HeroRetrieve?.description}
           </MKTypography>
-          <MKBox display="flex">
+          <MKBox display="flex" mt={1}>
             {
               Redux.state.ReceivedObject?.Retrieve?.HeroRetrieve?.webLinks?.map((each, index) => {
                 return (

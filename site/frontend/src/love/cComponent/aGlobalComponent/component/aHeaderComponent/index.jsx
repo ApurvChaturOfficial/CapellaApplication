@@ -499,7 +499,7 @@ function HeaderComponent({ Redux, LogoutAPICall, brand, routes, transparent, lig
                     to={FinalRouteName.ContentRoute.TopbarRoute.ProfileRoute}
                   >
                     <MKBox display="flex" alignItems="center" lineHeight={0.5} component={Link} to={FinalRouteName.ContentRoute.TopbarRoute.ProfileRoute} >
-                      <MKAvatar src={Redux.state.ReceivedObject?.ProfileRetrieve?.aImage?.url || defaultUser} size="sm" />
+                      <MKAvatar src={Redux.state.ReceivedObject?.ProfileRetrieve?.eImage?.url || defaultUser} size="sm" />
                       <MKBox ml={1} lineHeight={0.5} display={{ xs: "none", lg: "inline-block" }} >
                         <MKTypography display="block" variant="button" fontWeight="medium" color={light ? "white" : "dark"}>
                           {Redux.state.ReceivedObject?.ProfileRetrieve?.aTitle}
@@ -509,6 +509,7 @@ function HeaderComponent({ Redux, LogoutAPICall, brand, routes, transparent, lig
                         </MKTypography>
                       </MKBox>
                     </MKBox>
+                  </MKBox>
                   </MKBox>
 
                   <MKBox

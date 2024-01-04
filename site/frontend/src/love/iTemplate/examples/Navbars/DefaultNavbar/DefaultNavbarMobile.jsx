@@ -172,13 +172,13 @@ function DefaultNavbarMobile({ routes, open, Redux, LogoutAPICall }) {
                 sx={{ cursor: "pointer", userSelect: "none" }}
               >
                 <MKBox display="flex" alignItems="center" lineHeight={0.5} component={Link} to={FinalRouteName.ContentRoute.TopbarRoute.ProfileRoute} >
-                  <MKAvatar src={Redux.state.ReceivedObject?.ProfileRetrieve?.aImage?.url || defaultUser} size="sm" />
+                  <MKAvatar src={Redux.state.ReceivedObject?.ProfileRetrieve?.eImage?.url || defaultUser} size="sm" />
                   <MKBox ml={1} lineHeight={0.5} display="inline-block" >
                     <MKTypography display="block" variant="button" fontWeight="medium" color="dark">
                       {Redux.state.ReceivedObject?.ProfileRetrieve?.aTitle}
                     </MKTypography>
                     <MKTypography variant="caption" color="secondary">
-                      {Redux.state.ReceivedObject?.ProfileRetrieve?.email}
+                      {Redux.state.ReceivedObject?.ProfileRetrieve?.eEmail}
                     </MKTypography>
                   </MKBox>
                 </MKBox>

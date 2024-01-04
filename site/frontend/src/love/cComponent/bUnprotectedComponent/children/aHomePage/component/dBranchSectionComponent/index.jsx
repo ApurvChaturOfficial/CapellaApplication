@@ -42,7 +42,7 @@ function BranchSectionComponent({ Redux }) {
         <Grid container spacing={3}>
           {each?.subSubBranches?.map((each1, index1) => (
             <Grid item xs={12} md={4} sx={{ mb: 2 }} key={index1}>
-              <ExampleCard image={each1.image.url} name={each1.title} subtitle={each1.subtitle} pro={!each1.status} links={each1.links} />
+              <ExampleCard image={each1.image.url} name={each1.title} subtitle={each1.subtitle} pro={!each1.status} links={each1.links} badge={each1.description} />
             </Grid>
           ))}
         </Grid>
