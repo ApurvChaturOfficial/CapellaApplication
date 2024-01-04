@@ -510,7 +510,6 @@ function HeaderComponent({ Redux, LogoutAPICall, brand, routes, transparent, lig
                       </MKBox>
                     </MKBox>
                   </MKBox>
-                  </MKBox>
 
                   <MKBox
                     mx={1}
