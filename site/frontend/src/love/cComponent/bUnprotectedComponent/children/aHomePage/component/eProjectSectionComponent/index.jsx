@@ -29,6 +29,7 @@ function ProjectSectionComponent({ Redux }) {
             badgeContent={each.subtitle}
             container
             sx={{ mb: 1 }}
+            circular
           />
           <MKTypography variant="h3" fontWeight="bold" mb={1}>
             {each.title}

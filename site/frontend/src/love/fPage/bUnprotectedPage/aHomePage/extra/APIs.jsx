@@ -89,6 +89,7 @@ const APIs = {
                       image: each1?.aImage,
                       title: each1?.aTitle,
                       subtitle: each1?.aSubtitle,
+                      description: each1?.aDescription,
                       status: each1?.aStatus,
                       links: each1?.dWebLinks,
                     }

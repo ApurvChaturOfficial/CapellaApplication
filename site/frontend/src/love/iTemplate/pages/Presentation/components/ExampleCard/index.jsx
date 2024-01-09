@@ -115,25 +115,28 @@ function ExampleCard({ image, name, name2, count, pro, subtitle, links, badge, .
               {subtitle}
             </MKTypography>
           )}
-          <Grid container spacing={1} justifyContent="start" sx={{ mt: 1 }}>
-            {links && links?.map((each ,index) => {
-              return (
-                <Grid item key={index} >
-                  <MKBox 
-                    component='a'
-                    href={each.url}
-                    target="_blank"
-                    rel="noreferrer"          
-                  >
-                    <MKButton variant="gradient" color="info">
-                      {each.title}
-                    </MKButton>
-                  </MKBox>
-                </Grid>
+
+          {pro ? null : (
+            <Grid container spacing={1} justifyContent="start" sx={{ mt: 1 }}>
+              {links && links?.map((each ,index) => {
+                return (
+                  <Grid item key={index} >
+                    <MKBox 
+                      component='a'
+                      href={each.url}
+                      target="_blank"
+                      rel="noreferrer"          
+                    >
+                      <MKButton variant="gradient" color="info">
+                        {each.title}
+                      </MKButton>
+                    </MKBox>
+                  </Grid>
                 )
-            })
-          }
-          </Grid>
+              })
+            }
+            </Grid>
+          )}
         </MKBox>
       ) : null}
     </MKBox>
