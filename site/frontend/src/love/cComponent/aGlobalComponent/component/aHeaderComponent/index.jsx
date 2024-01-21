@@ -30,6 +30,7 @@ import FinalRouteName from "src/love/gRoute/FinalRouteName";
 import MKAvatar from "src/love/iTemplate/components/MKAvatar";
 import defaultUser from "src/love/iTemplate/assets/images/default-user-image.jpg";
 import beehive from "src/love/iTemplate/assets/images/beehive.png";
+import NavbarDropdown from "./component/aNavbarDropdown";
 
 
 function HeaderComponent({ Redux, LogoutAPICall, brand, routes, transparent, light, action, sticky, relative, center }) {
@@ -74,7 +75,8 @@ function HeaderComponent({ Redux, LogoutAPICall, brand, routes, transparent, lig
   }, []);
 
   const renderNavbarItems = routes.map(({ name, icon, href, route, collapse }) => (
-    <DefaultNavbarDropdown
+    <NavbarDropdown
+      Redux={Redux}
       key={name}
       name={name}
       icon={icon}
@@ -482,12 +484,13 @@ function HeaderComponent({ Redux, LogoutAPICall, brand, routes, transparent, lig
             ml="auto"
             mr={center ? "auto" : 0}
           >
-            {renderNavbarItems}
 
             {Redux.state.RequiredObject?.Loading ? null :
               Redux.state.ReceivedObject?.ProfileRetrieve ? (
                 <React.Fragment>
-                  <MKBox
+                  {renderNavbarItems}
+
+                  {/* <MKBox
                     mx={1}
                     p={1}
                     display="flex"
@@ -505,11 +508,11 @@ function HeaderComponent({ Redux, LogoutAPICall, brand, routes, transparent, lig
                           {Redux.state.ReceivedObject?.ProfileRetrieve?.aTitle}
                         </MKTypography>
                         <MKTypography variant="caption" color={light ? "white" : "secondary"}>
-                          {Redux.state.ReceivedObject?.ProfileRetrieve?.email}
+                          {Redux.state.ReceivedObject?.ProfileRetrieve?.eEmail}
                         </MKTypography>
                       </MKBox>
                     </MKBox>
-                  </MKBox>
+                  </MKBox> */}
 
                   <MKBox
                     mx={1}

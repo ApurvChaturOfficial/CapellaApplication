@@ -38,6 +38,7 @@ import defaultUser from "src/love/iTemplate/assets/images/default-user-image.jpg
 import FinalRouteName from "src/love/gRoute/FinalRouteName";
 import Icon from "src/love/iTemplate/assets/theme/components/icon";
 import { Face, Login, Logout } from "@mui/icons-material";
+import NavbarDropdown from "src/love/cComponent/aGlobalComponent/component/aHeaderComponent/component/aNavbarDropdown";
 
 
 function DefaultNavbarMobile({ routes, open, Redux, LogoutAPICall }) {
@@ -47,7 +48,8 @@ function DefaultNavbarMobile({ routes, open, Redux, LogoutAPICall }) {
 
   const renderNavbarItems = routes.map(
     ({ name, icon, collapse: routeCollapses, href, route, collapse: navCollapse }) => (
-      <DefaultNavbarDropdown
+      <NavbarDropdown
+        Redux={Redux}
         key={name}
         name={name}
         icon={icon}
@@ -152,37 +154,18 @@ function DefaultNavbarMobile({ routes, open, Redux, LogoutAPICall }) {
               </MKBox>
             ))}
         </MKBox>
-      </DefaultNavbarDropdown>
+      </NavbarDropdown>
     )
   );
 
   return (
     <Collapse in={Boolean(open)} timeout="auto" unmountOnExit>
       <MKBox width="calc(100% + 1.625rem)" my={2} ml={-2}>
-        {renderNavbarItems}
 
         {Redux.state.RequiredObject?.Loading ? null :
           Redux.state.ReceivedObject?.ProfileRetrieve ? (
             <React.Fragment>
-              <MKBox
-                mx={1}
-                p={1}
-                display="flex"
-                alignItems="baseline"
-                sx={{ cursor: "pointer", userSelect: "none" }}
-              >
-                <MKBox display="flex" alignItems="center" lineHeight={0.5} component={Link} to={FinalRouteName.ContentRoute.TopbarRoute.ProfileRoute} >
-                  <MKAvatar src={Redux.state.ReceivedObject?.ProfileRetrieve?.eImage?.url || defaultUser} size="sm" />
-                  <MKBox ml={1} lineHeight={0.5} display="inline-block" >
-                    <MKTypography display="block" variant="button" fontWeight="medium" color="dark">
-                      {Redux.state.ReceivedObject?.ProfileRetrieve?.aTitle}
-                    </MKTypography>
-                    <MKTypography variant="caption" color="secondary">
-                      {Redux.state.ReceivedObject?.ProfileRetrieve?.eEmail}
-                    </MKTypography>
-                  </MKBox>
-                </MKBox>
-              </MKBox>
+              {renderNavbarItems}
 
               <DefaultNavbarDropdown
                 name="Logout"

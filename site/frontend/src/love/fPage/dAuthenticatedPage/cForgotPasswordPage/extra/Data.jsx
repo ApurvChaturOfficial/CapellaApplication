@@ -26,10 +26,12 @@ const Data = (Redux) => {
       ],
       links: [
         {
+          note: "Already have an account?",
           label: "Login",
           route: FinalRouteName.AuthRoute.LoginRoute
         },
         {
+          note: "Don't have an account?",
           label: "Register",
           route: FinalRouteName.AuthRoute.RegisterRoute
         },

@@ -7,7 +7,7 @@ import validateFormObject from "src/love/dFunction/bValidateFormObject"
 const Data = (Redux) => {
   return (
     {
-      title: "Register asdsa",
+      title: "Register",
       inputs: [
         {
           label: "First Name",
@@ -47,11 +47,13 @@ const Data = (Redux) => {
       ],
       links: [
         {
+          note: "Already have an account?",
           label: "Login",
           route: FinalRouteName.AuthRoute.LoginRoute
         },
         {
-          label: "Forgot Password",
+          note: "Forgot password?",
+          label: "Reset",
           route: FinalRouteName.AuthRoute.ForgotPasswordRoute
         },
       ]

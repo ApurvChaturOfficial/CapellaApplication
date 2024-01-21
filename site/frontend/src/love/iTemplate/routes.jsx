@@ -70,34 +70,35 @@ import Typography from "src/love/iTemplate/layouts/sections/elements/typography"
 import FinalRouteName from "../gRoute/FinalRouteName";
 
 const routes = [
-  // {
-  //   name: "pages",
-  //   icon: <Icon>dashboard</Icon>,
-  //   columns: 1,
-  //   rowsPerColumn: 2,
-  //   collapse: [
-  //     {
-  //       collapse: [
-  //         {
-  //           name: "home",
-  //           route: FinalRouteName.Global.HomeRoute,
-  //         },
-  //         {
-  //           name: "about us",
-  //           route: FinalRouteName.Global.AboutRoute,
-  //         },
-  //         {
-  //           name: "contact us",
-  //           route: FinalRouteName.Global.ContactRoute,
-  //         },
-  //         {
-  //           name: "contact us",
-  //           route: FinalRouteName.Global.ContactRoute,
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // },
+  {
+    name: "Profile",
+    icon: <Icon>person_2</Icon>,
+    columns: 1,
+    rowsPerColumn: 2,
+    collapse: [
+      {
+        name: "Profile Options",
+        collapse: [
+          {
+            name: "View Profile",
+            route: FinalRouteName.ContentRoute.TopbarRoute.ProfileRoute,
+          },
+          {
+            name: "Update Profile",
+            route: FinalRouteName.ContentRoute.TopbarRoute.ProfileUpdateRoute,
+          },
+          {
+            name: "Update Password",
+            route: FinalRouteName.ContentRoute.TopbarRoute.ProfilePasswordUpdateRoute,
+          },
+          {
+            name: "Delete Account",
+            route: FinalRouteName.ContentRoute.TopbarRoute.ProfileDeleteRoute,
+          },
+        ],
+      },
+    ],
+  },
   // {
   //   name: "sections",
   //   icon: <Icon>view_day</Icon>,
@@ -235,8 +236,8 @@ const routes = [
   //   collapse: [
   //     {
   //       name: "getting started",
-  //       description: "All about overview, quick start, license and contents",
-  //       href: "https://www.creative-tim.com/learning-lab/react/quick-start/material-kit/",
+  //       // description: "All about overview, quick start, license and contents",
+  //       to: "https://www.creative-tim.com/learning-lab/react/quick-start/material-kit/",
   //     },
   //     {
   //       name: "foundation",

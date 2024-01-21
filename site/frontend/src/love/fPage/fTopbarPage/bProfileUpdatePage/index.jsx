@@ -14,6 +14,7 @@ import ProfileUpdateComponent from 'src/love/cComponent/fTopbarComponent/childre
 // Other
 import submitFormObject from 'src/love/dFunction/cSubmitFormObject';
 import validateFormObject from 'src/love/dFunction/bValidateFormObject';
+import EventHandler from './extra/EventHandler';
 
 
 const ProfileUpdatePage = ({ ReduxUltimate }) => {
@@ -50,7 +51,7 @@ const ProfileUpdatePage = ({ ReduxUltimate }) => {
   return (
     <React.Fragment>
 			{ReduxUltimate.state.RequiredObject?.Loading ? "Loading..." :
-				<ProfileUpdateComponent Redux={Redux} OnClick={event => validateFormObject(event, Redux, Function.validateFormValues)} />
+				<ProfileUpdateComponent Redux={Redux} EventHandler={EventHandler} OnClick={event => validateFormObject(event, Redux, Function.validateFormValues)} />
 			}
     </React.Fragment>
   )

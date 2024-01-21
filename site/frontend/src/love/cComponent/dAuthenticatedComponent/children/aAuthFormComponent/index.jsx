@@ -46,7 +46,7 @@ const AuthFormComponent = ({ Data, Redux, ReduxUltimate }) => {
             `${linearGradient(
               rgba(gradients.dark.main, 0.6),
               rgba(gradients.dark.state, 0.6)
-            )}, url(${bgImage})`,
+          )}, url(${bgImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -68,9 +68,9 @@ const AuthFormComponent = ({ Data, Redux, ReduxUltimate }) => {
                 textAlign="center"
               >
                 <MKTypography variant="h4" fontWeight="medium" color="white" mt={1}>
-                  Sign in
+                  {Data.title}
                 </MKTypography>
-                <Grid container spacing={3} justifyContent="center" sx={{ mt: 1, mb: 2 }}>
+                {/* <Grid container spacing={3} justifyContent="center" sx={{ mt: 1, mb: 2 }}>
                   <Grid item xs={2}>
                     <MKTypography component={MuiLink} href="#" variant="body1" color="white">
                       <FacebookIcon color="inherit" />
@@ -86,7 +86,7 @@ const AuthFormComponent = ({ Data, Redux, ReduxUltimate }) => {
                       <GoogleIcon color="inherit" />
                     </MKTypography>
                   </Grid>
-                </Grid>
+      </Grid> */}
               </MKBox>
               <MKBox pt={4} pb={3} px={3}>
 
@@ -119,7 +119,7 @@ const AuthFormComponent = ({ Data, Redux, ReduxUltimate }) => {
                     {
                       Data.buttons.map((each, index) =>  {
                         return (
-                          <MKBox mt={4} mb={1} key={index}>
+                          <MKBox mt={2} mb={1} key={index}>
                             <MKButton variant="gradient" color="info" fullWidth onClick={each.onClick}>
                               {each.label}
                             </MKButton>
@@ -128,11 +128,11 @@ const AuthFormComponent = ({ Data, Redux, ReduxUltimate }) => {
                       })
                     }
 
-                    <MKBox mt={3} mb={1} textAlign="center">
+                    <MKBox mt={1} textAlign="center">
                       {
                         Data.links.map((each, index) => {
                           return (
-                            <MKBox mt={1} mb={1} textAlign="center" key={index}>
+                            <MKBox textAlign="center" key={index}>
 
                               <MKTypography variant="button" color="text">
                                 {each?.note}{" "}
