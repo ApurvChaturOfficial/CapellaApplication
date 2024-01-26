@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 
 // react-router components
 import { Routes, Route, Navigate, BrowserRouter } from "react-router-dom";
@@ -28,20 +28,21 @@ import TopbarLayout from "src/love/eLayout/fTopbarLayout";
 import SidebarLayout from "src/love/eLayout/gSidebarLayout";
 
 // Page
-import HomePage from "src/love/fPage/bUnprotectedPage/aHomePage";
-import AboutPage from "src/love/fPage/bUnprotectedPage/bAboutPage";
-import ContactPage from "src/love/fPage/bUnprotectedPage/cContactpage";
+const HomePage = React.lazy(() => import('src/love/fPage/bUnprotectedPage/aHomePage'));
+const AboutPage = React.lazy(() => import('src/love/fPage/bUnprotectedPage/bAboutPage'));
+const ContactPage = React.lazy(() => import('src/love/fPage/bUnprotectedPage/cContactpage'));
 
-import LoginPage from "src/love/fPage/dAuthenticatedPage/aLoginPage";
-import RegisterPage from "src/love/fPage/dAuthenticatedPage/bRegisterPage";
-import ForgotPasswordPage from "src/love/fPage/dAuthenticatedPage/cForgotPasswordPage";
-import ResetPasswordPage from "src/love/fPage/dAuthenticatedPage/dResetPasswordPage";
+const LoginPage = React.lazy(() => import('src/love/fPage/dAuthenticatedPage/aLoginPage'));
+const RegisterPage = React.lazy(() => import('src/love/fPage/dAuthenticatedPage/bRegisterPage'));
+const ForgotPasswordPage = React.lazy(() => import('src/love/fPage/dAuthenticatedPage/cForgotPasswordPage'));
+const ResetPasswordPage = React.lazy(() => import('src/love/fPage/dAuthenticatedPage/dResetPasswordPage'));
 
-import ProfileRetrievePage from "src/love/fPage/fTopbarPage/aProfileReteivePage";
-import ProfileUpdatePage from "src/love/fPage/fTopbarPage/bProfileUpdatePage";
-import ProfilePasswordUpdatePage from "src/love/fPage/fTopbarPage/cProfilePasswordUpdatePage";
-import ProfileDeletePage from "src/love/fPage/fTopbarPage/dProfileDeletePage";
+const ProfileRetrievePage = React.lazy(() => import('src/love/fPage/fTopbarPage/aProfileReteivePage'));
+const ProfileUpdatePage = React.lazy(() => import('src/love/fPage/fTopbarPage/bProfileUpdatePage'));
+const ProfilePasswordUpdatePage = React.lazy(() => import('src/love/fPage/fTopbarPage/cProfilePasswordUpdatePage'));
+const ProfileDeletePage = React.lazy(() => import('src/love/fPage/fTopbarPage/dProfileDeletePage'));
 import RouteName from "src/love/gRoute/RouteName";
+import Loader from "src/love/cComponent/aGlobalComponent/component/cLoader";
 
 
 export default function App2() {
@@ -94,37 +95,39 @@ export default function App2() {
           pauseOnHover
           theme="light"
         /> */}
-        <Routes>
-          <Route element={<GlobalLayout ReduxUltimate={Redux} />} >
-              <Route element={<UnprotectedLayout ReduxUltimate={Redux} />} >
-                <Route path={RouteName.GlobalRoute.HomeRoute} element={<HomePage ReduxUltimate={Redux} />} />
-                <Route path={RouteName.GlobalRoute.AboutRoute} element={<AboutPage ReduxUltimate={Redux} />} />
-                <Route path={RouteName.GlobalRoute.ContactRoute} element={<ContactPage ReduxUltimate={Redux} />} />
-              </Route>
-
-              <Route element={<ProtectedLayout ReduxUltimate={Redux} />} >
-                <Route element={<AuthenticatedLayout ReduxUltimate={Redux} />} >
-                  <Route path={RouteName.AuthRoute.LoginRoute} element={<LoginPage ReduxUltimate={Redux} />} />
-                  <Route path={RouteName.AuthRoute.RegisterRoute} element={<RegisterPage ReduxUltimate={Redux} />} />
-                  <Route path={RouteName.AuthRoute.ForgotPasswordRoute} element={<ForgotPasswordPage ReduxUltimate={Redux} />} />
-                  <Route path={`${RouteName.AuthRoute.ResetPasswordRoute}/:token`} element={<ResetPasswordPage ReduxUltimate={Redux} />} />
+        <Suspense fallback={<Loader text="Suspense Loading..." />}>
+          <Routes>
+            <Route element={<GlobalLayout ReduxUltimate={Redux} />} >
+                <Route element={<UnprotectedLayout ReduxUltimate={Redux} />} >
+                  <Route path={RouteName.GlobalRoute.HomeRoute} element={<HomePage ReduxUltimate={Redux} />} />
+                  <Route path={RouteName.GlobalRoute.AboutRoute} element={<AboutPage ReduxUltimate={Redux} />} />
+                  <Route path={RouteName.GlobalRoute.ContactRoute} element={<ContactPage ReduxUltimate={Redux} />} />
                 </Route>
 
-                <Route element={<AuthorisedLayout ReduxUltimate={Redux} />} >
-                  <Route element={<TopbarLayout ReduxUltimate={Redux} />} >
-                    <Route path={RouteName.ContentRoute.TopbarRoute.ProfileRetrieveRoute} element={<ProfileRetrievePage ReduxUltimate={Redux} />} />
-                    <Route path={RouteName.ContentRoute.TopbarRoute.ProfileUpdateRoute} element={<ProfileUpdatePage ReduxUltimate={Redux} />} />
-                    <Route path={RouteName.ContentRoute.TopbarRoute.ProfilePasswordUpdateRoute} element={<ProfilePasswordUpdatePage ReduxUltimate={Redux} />} />
-                    <Route path={RouteName.ContentRoute.TopbarRoute.ProfileDeleteRoute} element={<ProfileDeletePage ReduxUltimate={Redux} />} />
+                <Route element={<ProtectedLayout ReduxUltimate={Redux} />} >
+                  <Route element={<AuthenticatedLayout ReduxUltimate={Redux} />} >
+                    <Route path={RouteName.AuthRoute.LoginRoute} element={<LoginPage ReduxUltimate={Redux} />} />
+                    <Route path={RouteName.AuthRoute.RegisterRoute} element={<RegisterPage ReduxUltimate={Redux} />} />
+                    <Route path={RouteName.AuthRoute.ForgotPasswordRoute} element={<ForgotPasswordPage ReduxUltimate={Redux} />} />
+                    <Route path={`${RouteName.AuthRoute.ResetPasswordRoute}/:token`} element={<ResetPasswordPage ReduxUltimate={Redux} />} />
                   </Route>
 
-                  <Route element={<SidebarLayout ReduxUltimate={Redux} />} >
+                  <Route element={<AuthorisedLayout ReduxUltimate={Redux} />} >
+                    <Route element={<TopbarLayout ReduxUltimate={Redux} />} >
+                      <Route path={RouteName.ContentRoute.TopbarRoute.ProfileRetrieveRoute} element={<ProfileRetrievePage ReduxUltimate={Redux} />} />
+                      <Route path={RouteName.ContentRoute.TopbarRoute.ProfileUpdateRoute} element={<ProfileUpdatePage ReduxUltimate={Redux} />} />
+                      <Route path={RouteName.ContentRoute.TopbarRoute.ProfilePasswordUpdateRoute} element={<ProfilePasswordUpdatePage ReduxUltimate={Redux} />} />
+                      <Route path={RouteName.ContentRoute.TopbarRoute.ProfileDeleteRoute} element={<ProfileDeletePage ReduxUltimate={Redux} />} />
+                    </Route>
+
+                    <Route element={<SidebarLayout ReduxUltimate={Redux} />} >
+                    </Route>
                   </Route>
                 </Route>
               </Route>
-            </Route>
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </Suspense>
       </ThemeProvider>
     </BrowserRouter>
   );
