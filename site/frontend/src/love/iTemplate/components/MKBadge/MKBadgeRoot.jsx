@@ -121,7 +121,7 @@ export default styled(Badge)(({ theme, ownerState }) => {
       padding: paddings[size] || paddings.xs,
       fontSize: fontSizeValue,
       fontWeight: fontWeightBold,
-      textTransform: "uppercase",
+      // textTransform: "uppercase",
       lineHeight: 1,
       textAlign: "center",
       whiteSpace: "nowrap",

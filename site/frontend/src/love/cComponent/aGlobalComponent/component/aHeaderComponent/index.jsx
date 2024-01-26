@@ -444,6 +444,7 @@ function HeaderComponent({ Redux, LogoutAPICall, brand, routes, transparent, lig
   );
 
   return (
+    Redux.state.RequiredObject?.Loading ? null :
     <Container sx={sticky ? { position: "sticky", top: 0, zIndex: 10 } : null}>
       <MKBox
         py={1}

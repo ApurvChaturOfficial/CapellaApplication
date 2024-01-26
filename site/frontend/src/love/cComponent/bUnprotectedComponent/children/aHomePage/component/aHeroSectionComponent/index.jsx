@@ -70,7 +70,7 @@ const HeroSectionComponent = ({ Redux, ReduxUltimate }) => {
           <MKBadge
             variant="contained"
             color="info"
-            badgeContent="The Sigma Cluster (σC)"
+            badgeContent={Redux.state.ReceivedObject?.Retrieve?.HeroRetrieve?.tag}
             container
             circular
             sx={{ mb: 1, mt: 2 }}

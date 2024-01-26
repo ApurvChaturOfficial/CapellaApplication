@@ -9,6 +9,7 @@ import APIs from './extra/APIs';
 
 // Children
 import ProfileRetrieveComponent from 'src/love/cComponent/fTopbarComponent/children/aProfileRetrieveComponent';
+import Loader from 'src/love/cComponent/aGlobalComponent/component/cLoader';
 
 
 const ProfileRetrievePage = ({ ReduxUltimate }) => {
@@ -38,7 +39,7 @@ const ProfileRetrievePage = ({ ReduxUltimate }) => {
   // JSX
   return (
     <React.Fragment>
-			{ReduxUltimate.state.RequiredObject?.Loading ? "Loading..." :
+			{ReduxUltimate.state.RequiredObject?.Loading ? <Loader /> :
 				<ProfileRetrieveComponent Redux={Redux} />			
 			}
     </React.Fragment>

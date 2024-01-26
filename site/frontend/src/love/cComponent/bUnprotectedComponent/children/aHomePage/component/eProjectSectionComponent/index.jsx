@@ -80,7 +80,7 @@ function ProjectSectionComponent({ Redux }) {
           </MKTypography>
         </Grid>
       </Container>
-      <Container sx={{ mt: { xs: 8, lg: 16 } }}>{renderData}</Container>
+      <Container sx={{ mt: 6 }}>{renderData}</Container>
     </MKBox>
   );
 }

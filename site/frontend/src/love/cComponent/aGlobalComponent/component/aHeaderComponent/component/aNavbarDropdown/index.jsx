@@ -72,7 +72,7 @@ function NavbarDropdown({
           <MKAvatar src={Redux.state.ReceivedObject?.ProfileRetrieve?.eImage?.url || defaultUser} size="sm" />
           <MKBox ml={1} lineHeight={0.5} display={{ lg: "inline-block" }} >
             <MKTypography display="block" variant="button" fontWeight="medium" color={light ? "white" : "dark"}>
-              {Redux.state.ReceivedObject?.ProfileRetrieve?.aTitle}
+              {`${Redux.state.ReceivedObject?.ProfileRetrieve?.eFirstName} ${Redux.state.ReceivedObject?.ProfileRetrieve?.eLastName}`}
             </MKTypography>
             <MKTypography variant="caption" color={light ? "white" : "secondary"}>
               {Redux.state.ReceivedObject?.ProfileRetrieve?.eEmail}

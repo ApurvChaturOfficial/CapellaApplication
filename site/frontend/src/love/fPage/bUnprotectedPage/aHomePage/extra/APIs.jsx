@@ -24,6 +24,7 @@ const APIs = {
               title: serverResponse.retrieve?.hero_retrieve?.frontend?.aTitle,
               subtitle: serverResponse.retrieve?.hero_retrieve?.frontend?.aSubtitle,
               description: serverResponse.retrieve?.hero_retrieve?.frontend?.aDescription,
+              tag: serverResponse.retrieve?.hero_retrieve?.frontend?.dTag,
               webLinks: serverResponse.retrieve?.hero_retrieve?.frontend?.dWebLinks,
               socialLinks: serverResponse.retrieve?.hero_retrieve?.frontend?.dSocialLinks,
             },

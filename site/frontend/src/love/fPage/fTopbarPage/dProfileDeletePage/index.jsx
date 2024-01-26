@@ -9,6 +9,7 @@ import APIs from './extra/APIs';
 
 // Component
 import ProfileDeleteComponent from 'src/love/cComponent/fTopbarComponent/children/dProfileDeleteComponent';
+import Loader from 'src/love/cComponent/aGlobalComponent/component/cLoader';
 
 
 const ProfileDeletePage = ({ ReduxUltimate }) => {
@@ -39,7 +40,7 @@ const ProfileDeletePage = ({ ReduxUltimate }) => {
   // JSX
   return (
     <React.Fragment>
-      {ReduxUltimate.state.RequiredObject?.Loading ? "Loading..." :
+      {ReduxUltimate.state.RequiredObject?.Loading ? <Loader /> :
 				<ProfileDeleteComponent Redux={Redux} OnClick={() => APICalls.ProfileDeleteAPICall()} />
 			}
     </React.Fragment>

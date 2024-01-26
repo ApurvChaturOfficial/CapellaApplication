@@ -59,7 +59,7 @@ const APIs = {
       const serverResponse = response.data;
 
       if (serverResponse.success === true) {
-
+        window.location.reload()
       }
     })
     .catch(error => {
