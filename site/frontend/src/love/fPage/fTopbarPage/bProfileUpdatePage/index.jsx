@@ -20,6 +20,7 @@ import Loader from 'src/love/cComponent/aGlobalComponent/component/cLoader';
 
 const ProfileUpdatePage = ({ ReduxUltimate }) => {
   // Redux
+	const Redux = {
 		state: useSelector((fullState) => fullState.ProfileUpdatePageState),
 		dispatch: useDispatch(),
 		action: Action,
